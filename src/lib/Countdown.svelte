@@ -63,7 +63,7 @@
     href="https://goo.gle/juaragcp"
     class="text-[#1aa260] hover:text-[#4285f4] hover:underline"
     >goo.gle/juaragcp</a
-  > untuk mempelajari event JuaraGCP S7 lebih lanjut
+  > untuk mempelajari event JuaraGCP Season 7 lebih lanjut
 </p>
 
 <p
