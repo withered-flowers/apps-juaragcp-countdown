@@ -4,12 +4,13 @@
   import dayjs from "dayjs";
 
   import { onMount, onDestroy } from "svelte";
+  import { eventTimeEnd } from "./configs/config.js";
 
-  const endEventDay = "2022-01-30T23:59:59.000+07:00";
+  const endTime = eventTimeEnd;
 
   let timer = null;
   let now = dayjs().valueOf();
-  let end = dayjs(endEventDay).valueOf();
+  let end = dayjs(endTime).valueOf();
 
   onMount(() => {
     timer = setInterval(() => {

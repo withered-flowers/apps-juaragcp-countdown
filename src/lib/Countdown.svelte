@@ -5,12 +5,13 @@
 
   import { onMount, onDestroy } from "svelte";
   import { isCountdownCompleted } from "./stores/store.js";
+  import { qwiklabsTimeEnd } from "./configs/config.js";
 
-  const endDay = "2022-01-13T00:00:00.000-07:00";
+  const endTime = qwiklabsTimeEnd;
 
   let timer = null;
   let now = dayjs().valueOf();
-  let end = dayjs(endDay).valueOf();
+  let end = dayjs(endTime).valueOf();
 
   function updateFlag(bFlag) {
     isCountdownCompleted.set(bFlag);

@@ -14,6 +14,9 @@
 <main
   class="bg-[#f1f1f1] container p-4 min-h-screen min-w-full flex flex-col items-center justify-center text-center"
 >
+  <!-- Di sini kita menggunakan 2 countdown -->
+  <!-- Countdown untuk hitung countdown event dimulai -->
+  <!-- StartEvent untuk hitung dari event dimulai s.d. event ditutup -->
   {#if !willHideCounter}
     <Countdown />
   {:else}
