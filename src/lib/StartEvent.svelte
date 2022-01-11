@@ -4,28 +4,18 @@
   import dayjs from "dayjs";
 
   import { onMount, onDestroy } from "svelte";
-  import { isCountdownCompleted } from "./stores/store.js";
 
-  const endDay = "2022-01-13T00:00:00.000-07:00";
+  const endEventDay = "2022-01-30T23:59:59.000+07:00";
 
   let timer = null;
   let now = dayjs().valueOf();
-  let end = dayjs(endDay).valueOf();
-
-  function updateFlag(bFlag) {
-    isCountdownCompleted.set(bFlag);
-  }
+  let end = dayjs(endEventDay).valueOf();
 
   onMount(() => {
-    if (now >= end) {
-      updateFlag(true);
-    }
-
     timer = setInterval(() => {
       now = dayjs().valueOf();
 
       if (now >= end) {
-        updateFlag(true);
         clearInterval(timer);
       }
     }, 1000);
@@ -45,7 +35,7 @@
 <h1
   class="text-[#4285f4] text-[4rem] font-thin leading-[1.1] my-8 mx-auto max-w-[14rem] xs:max-w-none"
 >
-  Countdown JuaraGCP Season 7
+  JuaraGCP Season 7 berakhir dalam
 </h1>
 
 <div class="text-6xl text-center flex w-full items-center justify-center">
@@ -81,5 +71,5 @@
 <p
   class="max-w-[14rem] my-4 mx-auto leading-[1.35] xs:max-w-none text-sm font-normal text-slate-500"
 >
-  (Dihitung berdasarkan waktu server Google Cloud Skill Boost Pukul 00.00)
+  (Dihitung berdasarkan waktu server Indonesia dengan waktu UTC+7)
 </p>
