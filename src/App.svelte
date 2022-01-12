@@ -1,6 +1,7 @@
 <script>
   import "./assets/styles.css";
   import { isCountdownCompleted } from "./lib/stores/store";
+  import Confet from "./lib/Confet.svelte";
   import Countdown from "./lib/Countdown.svelte";
   import StartEvent from "./lib/StartEvent.svelte";
 
@@ -20,6 +21,7 @@
   {#if !willHideCounter}
     <Countdown />
   {:else}
+    <Confet />
     <StartEvent />
   {/if}
 </main>
