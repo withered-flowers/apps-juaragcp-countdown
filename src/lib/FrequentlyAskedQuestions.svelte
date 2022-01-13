@@ -10,7 +10,7 @@
 
 <div class="flex flex-col text-left font-mono divide-y-4">
   {#each faq as question}
-    <div>
+    <div class="py-4">
       <p class="text-slate-500">
         <span class="text-2xl mr-4">Q</span>{question.q}
       </p>
