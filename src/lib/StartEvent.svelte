@@ -74,3 +74,33 @@
 >
   (Dihitung berdasarkan waktu server Indonesia dengan waktu UTC+7)
 </p>
+
+<p
+  class="max-w-[14rem] mt-8 mx-auto leading-[1.35] xs:max-w-none text-xl font-normal text-slate-500"
+>
+  Ingin Tracking progress lab? silahkan unduh <a
+    href="https://firebasestorage.googleapis.com/v0/b/dev-that-can-be-crashed.appspot.com/o/juaragcp%2FJuaraGCPSeason7Checklist.xls?alt=media&token=55680515-fcfa-4153-9d7b-87088984ebd4"
+    class="text-[#1aa260] hover:text-[#4285f4] hover:underline">File excel</a
+  > ini.
+</p>
+<p
+  class="max-w-[14rem] my-4 mx-auto leading-[1.35] xs:max-w-none text-sm font-normal text-slate-500"
+>
+  (Special Thanks untuk <span class="font-bold">Yoga RSPR</span> yang sudah membuat
+  file ini 😉)
+</p>
+
+<p
+  class="max-w-[14rem] mt-8 mx-auto leading-[1.35] xs:max-w-none text-xl font-normal text-slate-500"
+>
+  Ingin mengetahui sudah sampai Tier berapa? Kunjungi <a
+    href="https://juaragcps7-validator.herokuapp.com/"
+    class="text-[#1aa260] hover:text-[#4285f4] hover:underline">Tautan ini</a
+  > untuk mengetahuinya.
+</p>
+<p
+  class="max-w-[14rem] my-4 mx-auto leading-[1.35] xs:max-w-none text-sm font-normal text-slate-500"
+>
+  (Special Thanks untuk <span class="font-bold">Archzen</span> yang sudah melanjutkan
+  situs ini 😉)
+</p>
