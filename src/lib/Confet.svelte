@@ -11,7 +11,7 @@
   const FLOOR_HEIGHT = 800; // pixels the particles will fall from initial explosion point
   const FLOOR_WIDTH = 1600; // horizontal spread of particles in pixels
   const PARTICLE_COUNT = 150;
-  const DURATION = 3500;
+  const DURATION = 2500;
   const COLORS = ["#FFC700", "#FF0000", "#2E3191", "#41BBC7"];
   const createParticles = (count, colors) => {
     const increment = 360 / count;
