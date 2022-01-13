@@ -24,7 +24,7 @@ export const faq = [
   },
   {
     q: "berapa quest untuk dapet swag?",
-    a: "minimal 8 quest dari list di web http://goo.gle/juaragcp",
+    a: "minimal 8 quest dari list di web https://goo.gle/juaragcp",
   },
   {
     q: "berarti questnya ga bebas ya?",
