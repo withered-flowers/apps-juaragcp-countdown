@@ -8,10 +8,14 @@
   import { eventTimeEnd } from "./configs/config.js";
 
   import FrequentlyAskedQuestions from "./FrequentlyAskedQuestions.svelte";
+  import VideoIntroduction from "./VideoIntroduction.svelte";
 
   const endTime = eventTimeEnd;
 
-  let isFaqShowing = false;
+  // "countdown" untuk nampilin halaman countdown
+  // "faq" untuk menampilkan halaman FAQ
+  // "video" untuk menampilkan halaman video
+  let whichContentShowing = "countdown";
 
   let timer = null;
   let now = dayjs().valueOf();
@@ -31,8 +35,8 @@
     clearInterval(timer);
   });
 
-  function toggleFaq() {
-    isFaqShowing = !isFaqShowing;
+  function toggleContent(contentAlias) {
+    whichContentShowing = contentAlias;
   }
 
   $: count = Math.round((end - now) / 1000);
@@ -42,7 +46,7 @@
   $: s = count % 60;
 </script>
 
-{#if !isFaqShowing}
+{#if whichContentShowing === "countdown"}
   <div in:fade={{ duration: 1000 }}>
     <h1
       class="text-[#4285f4] text-[4rem] font-thin leading-[1.1] my-8 mx-auto max-w-[14rem] xs:max-w-none"
@@ -89,6 +93,30 @@
     <p
       class="max-w-[14rem] mt-8 mx-auto leading-[1.35] xs:max-w-none text-xl font-normal text-slate-500"
     >
+      <!-- svelte-ignore a11y-invalid-attribute -->
+      Belum dapat credit? Silahkan nonton
+      <a
+        href="#"
+        class="text-[#1aa260] hover:text-[#4285f4] hover:underline"
+        on:click={() => toggleContent("video")}>Video Perkenalan</a
+      > ini yah.
+    </p>
+
+    <p
+      class="max-w-[14rem] mt-8 mx-auto leading-[1.35] xs:max-w-none text-xl font-normal text-slate-500"
+    >
+      <!-- svelte-ignore a11y-invalid-attribute -->
+      Ada pertanyaan? Silakan baca
+      <a
+        href="#"
+        class="text-[#1aa260] hover:text-[#4285f4] hover:underline"
+        on:click={() => toggleContent("faq")}>Pertanyaan Umum</a
+      > ini dulu yah
+    </p>
+
+    <p
+      class="max-w-[14rem] mt-8 mx-auto leading-[1.35] xs:max-w-none text-xl font-normal text-slate-500"
+    >
       Ingin Tracking progress lab? silahkan unduh <a
         href="https://firebasestorage.googleapis.com/v0/b/dev-that-can-be-crashed.appspot.com/o/juaragcp%2FJuaraGCPSeason7Checklist.xls?alt=media&token=55680515-fcfa-4153-9d7b-87088984ebd4"
         class="text-[#1aa260] hover:text-[#4285f4] hover:underline"
@@ -121,16 +149,14 @@
     <p
       class="max-w-[14rem] mt-8 mx-auto leading-[1.35] xs:max-w-none text-xl font-normal text-slate-500"
     >
-      <!-- svelte-ignore a11y-invalid-attribute -->
-      Ada pertanyaan? Silakan baca
-      <a
-        href="#"
+      Masih buntu? Yuk join grup <a
+        href="https://t.me/JuaraGCP"
         class="text-[#1aa260] hover:text-[#4285f4] hover:underline"
-        on:click={toggleFaq}>Pertanyaan Umum</a
-      > terlebih dahulu sebelum menanyakan ke grup telegram.
+        >telegram JuaraGCP</a
+      > untuk menanyakan lebih lanjut.
     </p>
   </div>
-{:else}
+{:else if whichContentShowing === "faq"}
   <div in:fade={{ duration: 1000 }}>
     <FrequentlyAskedQuestions />
 
@@ -141,7 +167,22 @@
       <a
         href="#"
         class="text-[#1aa260] hover:text-[#4285f4] hover:underline"
-        on:click={toggleFaq}>Kembali ke Countdown</a
+        on:click={() => toggleContent("countdown")}>Kembali ke Countdown</a
+      >
+    </p>
+  </div>
+{:else if whichContentShowing === "video"}
+  <div in:fade={{ duration: 1000 }}>
+    <VideoIntroduction />
+
+    <!-- svelte-ignore a11y-invalid-attribute -->
+    <p
+      class="max-w-[14rem] mt-8 mx-auto leading-[1.35] xs:max-w-none text-xl font-normal text-slate-500"
+    >
+      <a
+        href="#"
+        class="text-[#1aa260] hover:text-[#4285f4] hover:underline"
+        on:click={() => toggleContent("countdown")}>Kembali ke Countdown</a
       >
     </p>
   </div>
