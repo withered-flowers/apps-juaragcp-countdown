@@ -6,6 +6,7 @@
   import { onMount, onDestroy } from "svelte";
   import { fade } from "svelte/transition";
   import { eventTimeEnd } from "./configs/config.js";
+  import { isCountdownEventCompleted } from "./stores/store.js";
 
   import FrequentlyAskedQuestions from "./FrequentlyAskedQuestions.svelte";
   import VideoIntroduction from "./VideoIntroduction.svelte";
@@ -21,11 +22,20 @@
   let now = dayjs().valueOf();
   let end = dayjs(endTime).valueOf();
 
+  function updateFlag(bFlag) {
+    isCountdownEventCompleted.set(bFlag);
+  }
+
   onMount(() => {
+    if (now >= end) {
+      updateFlag(true);
+    }
+
     timer = setInterval(() => {
       now = dayjs().valueOf();
 
       if (now >= end) {
+        updateFlag(true);
         clearInterval(timer);
       }
     }, 1000);

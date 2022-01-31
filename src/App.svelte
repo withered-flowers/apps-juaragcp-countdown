@@ -1,14 +1,23 @@
 <script>
   import "./assets/styles.css";
-  import { isCountdownCompleted } from "./lib/stores/store";
+  import {
+    isCountdownCompleted,
+    isCountdownEventCompleted,
+  } from "./lib/stores/store";
   import Confet from "./lib/Confet.svelte";
   import Countdown from "./lib/Countdown.svelte";
   import StartEvent from "./lib/StartEvent.svelte";
+  import EndEvent from "./lib/EndEvent.svelte";
 
   let willHideCounter;
+  let willEndCounter;
 
   isCountdownCompleted.subscribe((val) => {
     willHideCounter = val;
+  });
+
+  isCountdownEventCompleted.subscribe((val) => {
+    willEndCounter = val;
   });
 </script>
 
@@ -18,11 +27,13 @@
   <!-- Di sini kita menggunakan 2 countdown -->
   <!-- Countdown untuk hitung countdown event dimulai -->
   <!-- StartEvent untuk hitung dari event dimulai s.d. event ditutup -->
-  {#if !willHideCounter}
+  {#if !willHideCounter && !willEndCounter}
     <Countdown />
-  {:else}
+  {:else if willHideCounter && !willEndCounter}
     <Confet />
     <StartEvent />
+  {:else}
+    <EndEvent />
   {/if}
 </main>
 
